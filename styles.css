@@ -1,1 +1,251 @@
+/* Definición de variables globales (root) para el uso de colores y tamaños en todo el sitio */
+:root {
+    --primary-color: #2c3e50; /* Color principal del sitio */
+    --secondary-color: #3498db; /* Color secundario (usado para botones y algunos enlaces) */
+    --accent-color: #e74c3c; /* Color de acento, para elementos destacados como el botón de logout */
+    --light-color: #ecf0f1; /* Color claro para fondos */
+    --dark-color: #2c3e50; /* Color oscuro, usado principalmente en el texto y la barra lateral */
+    --sidebar-width: 250px; /* Ancho de la barra lateral */
+    --navbar-height: 60px; /* Altura de la barra de navegación */
+    --transition-speed: 0.3s; /* Velocidad de las transiciones */
+}
+
+/* Aplicación de estilos generales a todos los elementos del sitio */
+* {
+    margin: 0; /* Elimina el margen por defecto */
+    padding: 0; /* Elimina el padding por defecto */
+    box-sizing: border-box; /* Ajusta el tamaño de los elementos para incluir el padding y border en el tamaño total */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Define la fuente predeterminada */
+}
+
+/* Estilos generales del body */
+body {
+    background-color: #f5f5f5; /* Fondo claro para todo el sitio */
+    color: var(--dark-color); /* Color del texto en un tono oscuro */
+    overflow-x: hidden; /* Elimina el desbordamiento horizontal */
+}
+
+/* Estilos para la barra de navegación (navbar) */
+.navbar {
+    position: fixed; /* Fija la barra de navegación en la parte superior */
+    top: 0;
+    left: 0;
+    width: 100%; /* Ocupa el ancho completo de la pantalla */
+    height: var(--navbar-height); /* Define la altura usando la variable */
+    background-color: var(--primary-color); /* Color de fondo principal */
+    color: white; /* Color del texto en blanco */
+    display: flex; /* Usa Flexbox para distribuir los elementos */
+    align-items: center; /* Centra los elementos verticalmente */
+    justify-content: space-between; /* Distribuye los elementos con espacio entre ellos */
+    padding: 0 20px 0 calc(var(--sidebar-width) + 20px); /* Relleno con espacio a la derecha suficiente para la barra lateral */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Agrega sombra para darle un efecto de profundidad */
+    z-index: 100; /* Asegura que la barra de navegación esté sobre otros elementos */
+}
+
+/* Estilos para el logo dentro de la barra de navegación */
+.navbar .logo {
+    font-size: 1.5rem; /* Tamaño de fuente más grande */
+    font-weight: bold; /* Negrita para el logo */
+    color: white; /* El texto del logo será blanco */
+    text-decoration: none; /* Elimina el subrayado del enlace */
+}
+
+
+
+/* Estilos para los botones de la barra de navegación */
+.navbar .nav-buttons {
+    display: flex; /* Usa Flexbox para organizar los botones */
+    gap: 15px; /* Espacio entre los botones */
+}
+
+/* Estilos para los botones de navegación */
+.navbar .nav-button {
+    background-color: var(--secondary-color); /* Color de fondo para los botones */
+    color: white; /* Color de texto blanco */
+    border: none; /* Sin bordes */
+    padding: 8px 16px; /* Relleno alrededor del texto */
+    border-radius: 4px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor a puntero al pasar sobre el botón */
+    font-weight: 600; /* Negrita en el texto */
+    transition: background-color var(--transition-speed); /* Efecto de transición en el cambio de color */
+}
+
+/* Efecto hover en los botones de navegación */
+.navbar .nav-button:hover {
+    background-color: #2980b9; /* Cambia el color de fondo cuando el cursor está sobre el botón */
+}
+
+/* Estilos específicos para el botón de logout */
+.navbar .nav-button.logout {
+    background-color: var(--accent-color); /* Color diferente para el botón de logout */
+}
+
+/* Efecto hover en el botón de logout */
+.navbar .nav-button.logout:hover {
+    background-color: #c0392b; /* Cambia el color de fondo al pasar el cursor */
+}
+
+/* Estilos para la barra lateral (sidebar) */
+.sidebar {
+    position: fixed; /* Fija la barra lateral en el lado izquierdo */
+    top: 0;
+    left: 0;
+    width: var(--sidebar-width); /* Ancho de la barra lateral usando la variable */
+    height: 100vh; /* Ocupa toda la altura de la pantalla */
+    background-color: var(--dark-color); /* Color de fondo oscuro */
+    color: white; /* Color de texto blanco */
+    padding-top: var(--navbar-height); /* Deja espacio suficiente en la parte superior para la barra de navegación */
+    overflow-y: auto; /* Permite el desplazamiento vertical */
+    z-index: 90; /* Asegura que la barra lateral esté debajo de la barra de navegación */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Sombra para dar efecto de profundidad */
+}
+
+/* Título del menú en la barra lateral */
+.menu-title {
+    text-align: center; /* Centra el texto */
+    padding: 15px 0; /* Relleno superior e inferior */
+    font-size: 1.2rem; /* Tamaño de fuente */
+    font-weight: bold; /* Negrita */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Línea separadora debajo */
+    margin-bottom: 10px; /* Espacio debajo del título */
+}
+
+/* Estilos para los elementos del menú en la barra lateral */
+.menu-item {
+    padding: 15px 20px; /* Relleno alrededor de cada elemento del menú */
+    cursor: pointer; /* Cambia el cursor a puntero al pasar sobre los elementos */
+    transition: background-color var(--transition-speed); /* Transición en el color de fondo */
+    display: flex; /* Usa Flexbox para distribuir el contenido */
+    align-items: center; /* Alinea verticalmente los elementos */
+    justify-content: space-between; /* Espacio entre el texto y el icono */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Línea separadora entre los elementos */
+}
+
+/* Efecto hover en los elementos del menú */
+.menu-item:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Cambia el color de fondo al pasar el cursor */
+}
+
+/* Estilo para los elementos del menú activos */
+.menu-item.active {
+    background-color: var(--secondary-color); /* Fondo resaltado para el elemento activo */
+}
+
+/* Estilos para los submenús */
+.submenu {
+    max-height: 0; /* Inicialmente el submenú está colapsado */
+    overflow: hidden; /* Oculta los elementos del submenú */
+    transition: max-height var(--transition-speed); /* Transición para la altura máxima */
+    background-color: rgba(0, 0, 0, 0.2); /* Fondo oscuro para el submenú */
+}
+
+/* Estilo para el submenú abierto */
+.submenu.open {
+    max-height: 300px; /* Define una altura máxima para el submenú cuando está abierto */
+}
+
+/* Estilos para los elementos dentro del submenú */
+.submenu-item {
+    padding: 12px 20px 12px 40px; /* Relleno para cada elemento, con más espacio a la izquierda */
+    cursor: pointer; /* Cambia el cursor a puntero */
+    transition: background-color var(--transition-speed); /* Transición en el color de fondo */
+}
+
+/* Efecto hover en los elementos del submenú */
+.submenu-item:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Cambia el color de fondo al pasar el cursor */
+}
+
+/* Estilo para los elementos del submenú activos */
+.submenu-item.active {
+    background-color: var(--accent-color); /* Fondo resaltado para el elemento activo */
+}
+
+/* Estilo para las flechas que indican submenú */
+.arrow {
+    transition: transform var(--transition-speed); /* Transición suave en la rotación */
+}
+
+/* Estilo para la flecha cuando el submenú está abierto */
+.arrow.open {
+    transform: rotate(90deg); /* Rota la flecha al abrir el submenú */
+}
+
+/* Estilos para el contenido principal */
+.main-content {
+    margin-left: var(--sidebar-width); /* Deja espacio a la izquierda para la barra lateral */
+    margin-top: var(--navbar-height); /* Deja espacio superior para la barra de navegación */
+    padding: 20px; /* Relleno alrededor del contenido */
+    min-height: calc(100vh - var(--navbar-height)); /* Asegura que el contenido ocupe el resto de la pantalla */
+}
+
+/* Estilos para las secciones de servicios */
+.service-section {
+    display: none; /* Oculta las secciones inicialmente */
+    opacity: 0; /* Hace las secciones invisibles inicialmente */
+    transform: translateY(20px); /* Desplaza las secciones hacia abajo */
+    transition: opacity 0.5s, transform 0.5s; /* Transición suave para la aparición */
+}
+
+/* Estilo para las secciones activas */
+.service-section.active {
+    display: block; /* Muestra las secciones activas */
+    opacity: 1; /* Hace las secciones visibles */
+    transform: translateY(0); /* Restablece la posición */
+}
+
+/* Estilos para los encabezados de las secciones de servicio */
+.service-header {
+    margin-bottom: 20px; /* Espacio debajo del encabezado */
+    padding-bottom: 10px; /* Relleno inferior */
+    border-bottom: 2px solid var(--secondary-color); /* Línea inferior de color secundario */
+}
+
+/* Estilos generales para el contenido de las secciones de servicio */
+.service-content {
+    background-color: white; /* Fondo blanco */
+    padding: 20px; /* Relleno dentro de la sección */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra alrededor de la sección */
+}
+
+/* Estilos para las imágenes dentro de las secciones de servicio */
+.service-image {
+    width: 100%; /* Hace que las imágenes ocupen todo el ancho de su contenedor */
+    height: 200px; /* Altura fija para las imágenes */
+    object-fit: cover; /* Asegura que la imagen se recorte proporcionalmente */
+    border-radius: 8px; /* Bordes redondeados para las imágenes */
+    margin-bottom: 20px; /* Espacio debajo de las imágenes */
+}
+
+/* Estilos responsivos para pantallas pequeñas */
+@media (max-width: 768px) {
+    :root {
+        --sidebar-width: 0; /* El ancho de la barra lateral será 0 en pantallas pequeñas */
+    }
+    
+    .sidebar {
+        transform: translateX(-100%); /* Desplaza la barra lateral fuera de la pantalla */
+        transition: transform var(--transition-speed); /* Transición para mostrar/ocultar la barra lateral */
+    }
+    
+    .sidebar.open {
+        transform: translateX(0); /* Muestra la barra lateral cuando esté abierta */
+        width: 250px; /* Restaura el ancho de la barra lateral */
+        --sidebar-width: 250px; /* Restaura el ancho de la barra lateral */
+    }
+    
+    .navbar {
+        padding: 0 20px; /* Ajusta el relleno de la barra de navegación */
+    }
+    
+    .menu-toggle {
+        display: block; /* Muestra el botón de menú para pantallas pequeñas */
+        background: none; /* Elimina el fondo */
+        border: none; /* Elimina el borde */
+        color: white; /* Color blanco */
+        font-size: 1.5rem; /* Tamaño de fuente mayor */
+        cursor: pointer; /* Puntero para el botón */
+    }
+}
 
