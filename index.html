@@ -1,3 +1,245 @@
-index.html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Declaración del conjunto de caracteres para la página -->
+    <meta charset="UTF-8">
+    <!-- Configuración de la vista en dispositivos móviles -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Título de la página que aparece en la pestaña del navegador -->
+    <title>Taller Automotriz - Servicios</title>
+    <!-- Vincula el archivo de estilos CSS para dar formato a la página -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Barra de navegación (Navbar) -->
+    <div class="navbar">
+        <!-- Logo que redirige a la página principal -->
+        <!--<a href="#" class="logo">Taller Automotriz Pro</a>-->
+
+        <a href="#" class="logo">
+            <a href="#" class="logo">Taller Automotriz Pro</a>
+        </a>   
+
+        <!-- Botones de la barra de navegación -->
+        <div class="nav-buttons">
+            <!-- Botón para iniciar sesión -->
+            <button class="nav-button login">Iniciar sesión</button>
+            <!-- Botón para cerrar sesión -->
+            <button class="nav-button logout">Salir</button>
+        </div>
+    </div>
+ 
+    <!-- Barra lateral (Sidebar) con las opciones del menú de servicios -->
+    <div class="sidebar">
+        <!-- Título del menú -->
+        <div class="menu-title">Servicios</div>
+        <!-- Elemento de menú para el servicio de latonería -->
+        <div class="menu-item" data-service="latoneria">
+            <span>Latonería</span>
+        </div>
+        <!-- Elemento de menú para el servicio de pintura -->
+        <div class="menu-item" data-service="pintura">
+            <span>Pintura</span>
+        </div>
+        <!-- Elemento de menú para el servicio de reparación, que tiene un submenú -->
+        <div class="menu-item has-submenu" data-service="reparacion">
+            <span>Reparación</span>
+            <!-- Flecha que indica que hay un submenú -->
+            <span class="arrow">›</span>
+        </div>
+        <!-- Submenú con opciones de reparación -->
+        <div class="submenu">
+            <div class="submenu-item" data-service="motor">Motor</div>
+            <div class="submenu-item" data-service="mofle">Mofle</div>
+            <div class="submenu-item" data-service="direccion">Dirección</div>
+            <div class="submenu-item" data-service="frenos">Frenos</div>
+        </div>
+        <!-- Otros elementos de menú -->
+        <div class="menu-item" data-service="escaner">
+            <span>Escáner</span>
+        </div>
+        <div class="menu-item" data-service="Destacados">
+            <span>Servicios Destacados</span>
+        </div>
+        <div class="menu-item" data-service="Clientes">
+            <span>Nuestros Clientes hablan</span>
+        </div>
+        <div class="menu-item" data-service="Contactos">
+            <span>Nuestros Contactos</span>
+        </div>
+    </div>
+ 
+    <!-- Contenido principal de la página -->
+    <div class="main-content">
+        <!-- Sección de Latonería -->
+        <div id="latoneria" class="service-section active">
+            <h2 class="service-header">Servicios de Latonería</h2>
+            <div class="service-content">
+                <!-- Imagen del servicio de latonería -->
+                <img src="C:\Users\LENOVO\Desktop\taller-automotriz\imagen-latoneria.png" alt="Servicio de Latonería" class="service-image">
+                <!-- Título de la descripción del servicio -->
+                <h3>Enderezado y reparación de carrocería</h3>
+                <p>...</p> <!-- Descripción del servicio de latonería -->
+                <p>Servicios incluidos:</p>
+                <ul>
+                    <li>Reparación de abolladuras</li>
+                    <li>Enderezado de chasis</li>
+                    <li>Cambio de paneles</li>
+                    <li>Reparación de impactos</li>
+                </ul>
+            </div>
+        </div>
+ 
+        <!-- Sección de Pintura -->
+        <div id="pintura" class="service-section">
+            <h2 class="service-header">Servicios de Pintura</h2>
+            <div class="service-content">
+                <!-- Imagen del servicio de pintura -->
+                <img src="C:\Users\LENOVO\Desktop\taller-automotriz\imagen-pintura.png" alt="Servicio de Pintura" class="service-image">
+                <h3>Pintura profesional para su vehículo</h3>
+                <p>...</p> <!-- Descripción del servicio de pintura -->
+                <p>Servicios incluidos:</p>
+                <ul>
+                    <li>Pintura completa</li>
+                    <li>Pintura parcial</li>
+                    <li>Difuminado y acabados</li>
+                    <li>Tratamiento anticorrosivo</li>
+                </ul>
+            </div>
+        </div>
+ 
+        <!-- Sección de Reparación de Motor -->
+        <div id="motor" class="service-section">
+            <h2 class="service-header">Reparación de Motor</h2>
+            <div class="service-content">
+                <img src="C:\Users\LENOVO\Desktop\taller-automotriz\imagen-motor.png" alt="Reparación de Motor" class="service-image">
+                <h3>Servicio completo de reparación de motores</h3>
+                <p>...</p> <!-- Descripción del servicio de reparación de motor -->
+                <p>Servicios incluidos:</p>
+                <ul>
+                    <li>Diagnóstico computarizado</li>
+                    <li>Reparación de motores</li>
+                    <li>Cambio de correas y cadenas de distribución</li>
+                    <li>Reparación de fugas</li>
+                </ul>
+            </div>
+        </div>
+ 
+        <!-- Sección de Reparación de Mofle -->
+        <div id="mofle" class="service-section">
+            <h2 class="service-header">Reparación de Mofle</h2>
+            <div class="service-content">
+                <img src="C:\Users\LENOVO\Desktop\taller-automotriz\imagen-mofle.png" alt="Reparación de Mofle" class="service-image">
+                <h3>Servicio de reparación y reemplazo de sistemas de escape</h3>
+                <p>...</p> <!-- Descripción del servicio de reparación de mofle -->
+                <p>Servicios incluidos:</p>
+                <ul>
+                    <li>Reparación de escapes</li>
+                    <li>Reemplazo de mofles</li>
+                    <li>Instalación de catalizadores</li>
+                    <li>Reducción de ruido</li>
+                </ul>
+            </div>
+        </div>
+ 
+        <!-- Sección de Reparación de Dirección -->
+        <div id="direccion" class="service-section">
+            <h2 class="service-header">Reparación de Dirección</h2>
+            <div class="service-content">
+                <img src="C:\Users\LENOVO\Desktop\taller-automotriz\imagen-direccion.png" alt="Reparación de Dirección" class="service-image">
+                <h3>Servicio especializado en sistemas de dirección</h3>
+                <p>...</p> <!-- Descripción del servicio de reparación de dirección -->
+                <p>Servicios incluidos:</p>
+                <ul>
+                    <li>Alineación de dirección</li>
+                    <li>Reparación de cremalleras</li>
+                    <li>Cambio de terminales</li>
+                    <li>Reparación de dirección asistida</li>
+                </ul>
+            </div>
+        </div>
+ 
+        <!-- Sección de Reparación de Frenos -->
+        <div id="frenos" class="service-section">
+            <h2 class="service-header">Reparación de Frenos</h2>
+            <div class="service-content">
+                <img src="C:\Users\LENOVO\Desktop\taller-automotriz\imagen-frenos.png" alt="Reparación de Frenos" class="service-image">
+                <h3>Servicio completo de sistemas de frenos</h3>
+                <p>...</p> <!-- Descripción del servicio de reparación de frenos -->
+                <p>Servicios incluidos:</p>
+                <ul>
+                    <li>Cambio de pastillas y discos</li>
+                    <li>Rectificación de discos</li>
+                    <li>Reparación de sistema ABS</li>
+                    <li>Purga de líquido de frenos</li>
+                </ul>
+            </div>
+        </div>
+ 
+        <!-- Sección de Escáner -->
+        <div id="escaner" class="service-section">
+            <h2 class="service-header">Servicio de Escáner</h2>
+            <div class="service-content">
+                <img src="C:\Users\LENOVO\Desktop\taller-automotriz\imagen-escaner.png" alt="Servicio de Escáner" class="service-image">
+                <h3>Diagnóstico computarizado avanzado</h3>
+                <p>...</p> <!-- Descripción del servicio de escáner -->
+                <p>Servicios incluidos:</p>
+                <ul>
+                    <li>Lectura de códigos de error</li>
+                    <li>Diagnóstico de centralitas</li>
+                    <li>Reseteo de luces de servicio</li>
+                    <li>Programación de módulos</li>
+                </ul>
+            </div>
+        </div>
+ 
+        <!-- Sección de Servicios Destacados -->
+        <div id="Destacados" class="service-section">
+            <h2 class="service-header">Destacados</h2>
+            <div class="service-content">
+                <img src="C:\Users\LENOVO\Desktop\taller-automotriz\imagen-destacados.png" alt="Nuestros Clientes" class="contacto-image">
+                <h3>Nuestro Servicio de Pintura TOTAL, su auto queda como NUEVO</h3>
+                <p>Nestros clientes los certifican</p>
+                <h3>Nuestro Servicio de Reparacion de Motor, Garantizado</h3>
+                <p>Pregunte por este servicio espectacular</p>
+                <h3>Nuestro Servicio de Escaneado, sin igual</h3>
+                <p>Todos lo errores desaparecen</p>                
+            </div>
+        </div>
+ 
+        <!-- Sección de Clientes -->
+        <div id="Clientes" class="service-section">
+            <h2 class="service-header">Clientes</h2>
+            <div class="service-content">
+                <img src="C:\Users\LENOVO\Desktop\taller-automotriz\imagen-clientes.png" alt="Clientes" class="clientes-image">
+                <h3>Lo lleve a pintar y al recibirlo , no lo podia creer , no reconocia mi propio vehiculo</h3>
+                <p>Sandra Rios</p>
+                <h3>Mi carro el motor era un desastre todos los dia presentaba alguna falla, y me lo entregaron como recien salido del concecionario</h3>
+                <p>Jose Perez</p>               
+                <h3>En mi tablero tenia muchos errores, lo lleve a revision y al finlaizar no quedo ni un error y mi carro funcionando bien</h3>
+                <p>Luis Castro</p>                    
+
+            </div>
+        </div>
+ 
+        <!-- Sección de Contactos -->
+        <div id="Contactos" class="service-section">
+            <h2 class="service-header">Contactos</h2>
+            <div class="service-content">
+                <img src="C:\Users\LENOVO\Desktop\taller-automotriz\imagen-contactos.png" alt="Contactos" class="contactos-image">
+                <p>jorge.rocha@contacto.com </p>
+                <p>celular 300-000-000</p>
+                <p>taller-automotriz@instagram</p>
+                <p>facebook@taller-automotriz</p>                                 
+
+            </div>
+        </div>
+    </div>
+ 
+    <!-- Vincula el archivo de script JavaScript para interactividad -->
+    <script src="script.js"></script>
+</body>
+</html>
+
 
 
