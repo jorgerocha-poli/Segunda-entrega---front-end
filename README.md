@@ -24,3 +24,29 @@ La estructura y los estilos definidos en el código CSS se complementan con la f
 •	Interacción de Submenú: El CSS maneja el diseño visual del submenú, mientras que el JavaScript asegura que el submenú se abra y se cierre correctamente según la interacción del usuario, cambiando las clases CSS en función de la acción.
 •	Estilos Responsivos: Mientras que el CSS gestiona cómo debe comportarse la in-terfaz en dispositivos móviles, el JavaScript controla cómo el submenú y el sidebar se comportan dependiendo de las acciones del usuario, garantizando una navega-ción fluida en pantallas pequeñas.
 En conjunto, estos tres fragmentos de código crean una interfaz de usuario interactiva y adaptable, con un diseño visualmente atractivo, capacidad de navegación entre secciones de servicios, y simulación de funcionalidades clave como el inicio y cierre de sesión.
+
+ Tecnologías utilizadas
+
+- **HTML5**
+- **CSS3**
+- **JavaScript Vanilla**
+ 
+
+ Notas importantes
+
+- Actualmente los formularios no están conectados a un backend real. Se pueden integrar fácilmente con herramientas como Firebase, Google Sheets API o servidores Node.js/PHP en el futuro.
+- El inicio y cierre de sesión están simulados (mock), pensados para integrarse luego con un sistema de autenticación real.
+La página web desarrollada es una interfaz interactiva para un taller automotriz que permite a los usuarios conocer los servicios ofrecidos, solicitar cotizaciones personalizadas y agendar citas en línea. Está estructurada con un menú lateral que contiene accesos a diferentes servicios, incluyendo un submenú para reparaciones específicas.
+Cada servicio cuenta con una sección dedicada que se muestra dinámicamente al seleccionarlo desde el menú. Estas secciones incluyen una descripción, imágenes, tiempo estimado, precio y garantía.
+Además, incorpora dos formularios modales:
+•	Formulario de cotización, accesible mediante un botón en la barra de navegación.
+•	Formulario de citas en línea, también disponible desde la barra de navegación.
+Ambos formularios recogen los datos del usuario y los muestran por consola, con validaciones básicas para campos como cédula, celular y correo electrónico. La navegación está optimizada para dispositivos móviles, asegurando una experiencia de usuario fluida en cualquier tamaño de pantalla.
+
+
+
+Desarrollado por Jorge E. Rocha Acosta
+
+
+
+
