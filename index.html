@@ -13,19 +13,29 @@
 <body>
     <!-- Barra de navegación (Navbar) -->
     <div class="navbar">
-        <!-- Logo que redirige a la página principal -->
-        <!--<a href="#" class="logo">Taller Automotriz Pro</a>-->
+        <!-- Logo  página principal -->
 
         <a href="#" class="logo">
             <a href="#" class="logo">Taller Automotriz Pro</a>
         </a>   
-
+     
+        <a href="#" class="logo">
+            <img src="C:\Users\LENOVO\Desktop\taller-automotriz/logo.png" alt="Taller Automotriz Pro" style="height: 60px;">
+        </a>
+        
         <!-- Botones de la barra de navegación -->
         <div class="nav-buttons">
             <!-- Botón para iniciar sesión -->
             <button class="nav-button login">Iniciar sesión</button>
+            <!-- Botón para registrar usuario sesión -->
+            <button class="nav-button" id="registerButton">Registrar Usuario</button>
+            <!-- Botón para elaborar una cotizacion-->
+            <button class="nav-button quote" id="quoteButton">Solicitar Cotización</button>
+            <!-- Botón para elaborar citas en linea-->
+            <button id="appointmentButton" class="nav-button appointment">Agendar Cita</button>
             <!-- Botón para cerrar sesión -->
             <button class="nav-button logout">Salir</button>
+
         </div>
     </div>
  
@@ -214,7 +224,7 @@
                 <img src="C:\Users\LENOVO\Desktop\taller-automotriz\imagen-clientes.png" alt="Clientes" class="clientes-image">
                 <h3>Lo lleve a pintar y al recibirlo , no lo podia creer , no reconocia mi propio vehiculo</h3>
                 <p>Sandra Rios</p>
-                <h3>Mi carro el motor era un desastre todos los dia presentaba alguna falla, y me lo entregaron como recien salido del concecionario</h3>
+                <h3>Mi carro el motor era un desastre todos los dia presentaba alguna falla, y me lo entregaron como recien salido del concesionario</h3>
                 <p>Jose Perez</p>               
                 <h3>En mi tablero tenia muchos errores, lo lleve a revision y al finlaizar no quedo ni un error y mi carro funcionando bien</h3>
                 <p>Luis Castro</p>                    
@@ -235,11 +245,120 @@
             </div>
         </div>
     </div>
- 
-    <!-- Vincula el archivo de script JavaScript para interactividad -->
+ <!-- pedir datos para la cotizacion -->
+<div id="quoteModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Solicitar Cotización</h2>
+        <form id="quoteForm">
+            <div class="form-group">
+                <label for="cedula">Cédula:</label>
+                <input type="text" id="cedula" name="cedula" required placeholder="Ingrese su número de cédula">
+            </div>
+            <div class="form-group">
+                <label for="nombre">Nombre y Apellido:</label>
+                <input type="text" id="nombre" name="nombre" required placeholder="Ingrese su nombre completo">
+            </div>
+            <div class="form-group">
+                <label for="celular">Celular:</label>
+                <input type="tel" id="celular" name="celular" required placeholder="Ej: 300-000-0000">
+            </div>
+            <div class="form-group">
+                <label for="correo">Correo Electrónico:</label>
+                <input type="email" id="correo" name="correo" required placeholder="ejemplo@correo.com">
+            </div>
+            <div class="form-group">
+                <label for="descripcion">Descripción del Servicio Requerido:</label>
+                <textarea id="descripcion" name="descripcion" rows="4" required placeholder="Describa el servicio que necesita para su vehículo"></textarea>
+            </div>
+            <button type="submit" class="submit-button">Enviar Solicitud</button>
+        </form>
+    </div>
+</div>
+
+<!-- Modal de Cita en Línea -->
+<div id="appointmentModal" class="modal">
+    <div class="modal-content">
+      <span class="close appointment-close">&times;</span>
+      <h2>Solicitar Cita en Línea</h2>
+      <form id="appointmentForm">
+        <div class="form-group">
+          <label for="nombreCita">Nombre completo</label>
+          <input type="text" id="nombreCita" required>
+        </div>
+        <div class="form-group">
+          <label for="cedulaCita">Cédula</label>
+          <input type="text" id="cedulaCita" required>
+        </div>
+        <div class="form-group">
+          <label for="celularCita">Teléfono</label>
+          <input type="text" id="celularCita" required>
+        </div>
+        <div class="form-group">
+          <label for="correoCita">Correo electrónico</label>
+          <input type="email" id="correoCita" required>
+        </div>
+        <div class="form-group">
+          <label for="servicioCita">Servicio</label>
+          <select id="servicioCita" required>
+            <option value="">Selecciona un servicio</option>
+            <option value="latoneria">Latonería</option>
+            <option value="pintura">Pintura</option>
+            <option value="motor">Reparación de Motor</option>
+            <option value="mofle">Reparación de Mofle</option>
+            <option value="direccion">Reparación de Dirección</option>
+            <option value="frenos">Reparación de Frenos</option>
+            <option value="escaner">Escáner</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="fechaCita">Fecha deseada</label>
+          <input type="date" id="fechaCita" required>
+        </div>
+        <div class="form-group">
+          <label for="horaCita">Hora deseada</label>
+          <input type="time" id="horaCita" required>
+        </div>
+        <div class="form-group">
+          <label for="comentariosCita">Comentarios (opcional)</label>
+          <textarea id="comentariosCita" rows="4"></textarea>
+        </div>
+        <button type="submit" class="submit-button">Agendar Cita</button>
+      </form>
+    </div>
+  </div>
+  
+<!-- Modal para registro de usuarios -->
+<div id="registerModal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="closeRegisterModal">&times;</span>
+      <h2>Registrar Usuario</h2>
+      <form id="registerForm">
+        <div class="form-group">
+          <label for="usuario">Usuario</label>
+          <input type="text" id="usuario" name="usuario" required>
+        </div>
+        <div class="form-group">
+          <label for="correoRegistro">Correo</label>
+          <input type="email" id="correoRegistro" name="correoRegistro" required>
+        </div>
+        <div class="form-group">
+          <label for="rol">Rol</label>
+          <select id="rol" name="rol" required>
+            <option value="Administrador">Administrador</option>
+            <option value="Visualizador">Visualizador</option>
+          </select>
+        </div>
+        <button type="submit" class="submit-button">Registrar</button>
+      </form>
+    </div>
+  </div>
+  
+    <!-- archivo de script JavaScript para interactividad -->
     <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
