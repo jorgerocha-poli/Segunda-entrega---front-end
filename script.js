@@ -54,6 +54,193 @@ const servicesMock = {
 
 // Este evento se dispara cuando el DOM se ha cargado completamente
 document.addEventListener('DOMContentLoaded', function() {
+
+
+    // Referencias al modal de registro
+const registerButton = document.getElementById('registerButton');
+const registerModal = document.getElementById('registerModal');
+const closeRegisterModal = document.getElementById('closeRegisterModal');
+const registerForm = document.getElementById('registerForm');
+
+// Abrir modal
+registerButton.addEventListener('click', function () {
+    registerModal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+});
+
+// Cerrar modal
+closeRegisterModal.addEventListener('click', function () {
+    registerModal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+});
+
+// Cerrar al hacer clic fuera
+window.addEventListener('click', function (event) {
+    if (event.target === registerModal) {
+        registerModal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+});
+
+// Manejar envío de formulario
+registerForm.addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    const newUser = {
+        usuario: document.getElementById('usuario').value,
+        correo: document.getElementById('correoRegistro').value,
+        rol: document.getElementById('rol').value
+    };
+
+    // Aquí se conectaría con backend si existiera
+    alert(`Usuario registrado correctamente:\n\nUsuario: ${newUser.usuario}\nCorreo: ${newUser.correo}\nRol: ${newUser.rol}`);
+    
+    console.log('Usuario registrado:', newUser);
+    registerForm.reset();
+    registerModal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+});
+
+
+// Funcionalidad para el modal de citas
+const appointmentButton = document.getElementById('appointmentButton');
+const appointmentModal = document.getElementById('appointmentModal');
+const closeAppointment = document.querySelector('.appointment-close');
+const appointmentForm = document.getElementById('appointmentForm');
+
+// Abrir el modal al hacer clic en el botón
+appointmentButton.addEventListener('click', function() {
+    appointmentModal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+});
+
+// Cerrar el modal al hacer clic en la X
+closeAppointment.addEventListener('click', function() {
+    appointmentModal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+});
+
+// Cerrar el modal al hacer clic fuera del contenido
+window.addEventListener('click', function(event) {
+    if (event.target === appointmentModal) {
+        appointmentModal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+});
+
+// Manejar el envío del formulario de cita
+appointmentForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const citaData = {
+        nombre: document.getElementById('nombreCita').value,
+        cedula: document.getElementById('cedulaCita').value,
+        celular: document.getElementById('celularCita').value,
+        correo: document.getElementById('correoCita').value,
+        servicio: document.getElementById('servicioCita').value,
+        fecha: document.getElementById('fechaCita').value,
+        hora: document.getElementById('horaCita').value,
+        comentarios: document.getElementById('comentariosCita').value
+    };
+
+    console.log('Cita solicitada:', citaData);
+    alert('Tu cita ha sido solicitada con éxito. Nos pondremos en contacto contigo pronto.');
+
+    appointmentForm.reset();
+    appointmentModal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+});
+
+// Validación para cédula y celular
+document.getElementById('cedulaCita').addEventListener('input', function() {
+    this.value = this.value.replace(/[^0-9]/g, '');
+});
+
+document.getElementById('celularCita').addEventListener('input', function() {
+    let input = this.value.replace(/\D/g, '');
+    if (input.length > 0) {
+        if (input.length <= 3) {
+            this.value = input;
+        } else if (input.length <= 6) {
+            this.value = input.slice(0, 3) + '-' + input.slice(3);
+        } else {
+            this.value = input.slice(0, 3) + '-' + input.slice(3, 6) + '-' + input.slice(6, 10);
+        }
+    }
+});
+
+
+// Funcionalidad para el modal de cotizaciones
+const quoteButton = document.getElementById('quoteButton');
+const quoteModal = document.getElementById('quoteModal');
+const closeModal = document.querySelector('.close');
+const quoteForm = document.getElementById('quoteForm');
+
+// Abrir el modal al hacer clic en el botón de cotización
+quoteButton.addEventListener('click', function() {
+    quoteModal.style.display = 'block';
+    document.body.style.overflow = 'hidden'; // Evita el desplazamiento de la página mientras el modal está abierto
+});
+
+// Cerrar el modal al hacer clic en la X
+closeModal.addEventListener('click', function() {
+    quoteModal.style.display = 'none';
+    document.body.style.overflow = 'auto'; // Restaura el desplazamiento
+});
+
+// Cerrar el modal al hacer clic fuera del contenido
+window.addEventListener('click', function(event) {
+    if (event.target === quoteModal) {
+        quoteModal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+});
+
+// Manejar el envío del formulario
+quoteForm.addEventListener('submit', function(event) {
+    event.preventDefault(); // Evita el envío normal del formulario
+    
+    // Recopilar los datos del formulario
+    const formData = {
+        cedula: document.getElementById('cedula').value,
+        nombre: document.getElementById('nombre').value,
+        celular: document.getElementById('celular').value,
+        correo: document.getElementById('correo').value,
+        descripcion: document.getElementById('descripcion').value
+    };
+    
+    // Aquí  se puedes añadir código para enviar los datos a un servidor
+    // solo mostraremos un mensaje de confirmación
+    alert('Solicitud de cotización enviada correctamente. Nos pondremos en contacto contigo pronto.');
+    
+    // Limpiar el formulario y cerrar el modal
+    quoteForm.reset();
+    quoteModal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+    
+    // Para depuración: mostrar los datos en la consola
+    console.log('Datos de la cotización:', formData);
+});
+
+// Validación básica para el campo de cédula (numerico)
+document.getElementById('cedula').addEventListener('input', function() {
+    this.value = this.value.replace(/[^0-9]/g, '');
+});
+
+// Validación básica para el campo de celular (formato: 000-000-0000)
+document.getElementById('celular').addEventListener('input', function() {
+    let input = this.value.replace(/\D/g, ''); // Eliminar no números
+    if (input.length > 0) {
+        if (input.length <= 3) {
+            this.value = input;
+        } else if (input.length <= 6) {
+            this.value = input.slice(0, 3) + '-' + input.slice(3);
+        } else {
+            this.value = input.slice(0, 3) + '-' + input.slice(3, 6) + '-' + input.slice(6, 10);
+        }
+    }
+});
+
     // Referencias a los elementos del DOM
     const menuItems = document.querySelectorAll('.menu-item'); // Todos los elementos de menú
     const submenuItems = document.querySelectorAll('.submenu-item'); // Elementos dentro de un submenú
@@ -145,4 +332,3 @@ document.addEventListener('DOMContentLoaded', function() {
         // Aquí se manejaría la funcionalidad de cierre de sesión en una aplicación real
     });
 });
-
